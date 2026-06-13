@@ -83,6 +83,7 @@ Below is a simplified comparison based on sample benchmark runs (All results wer
 - Sign (PA): ~0.00012 s  
 - Verify (PA): ~0.00008 s  
 - Total pipeline: ~0.0016 s
+
 ✅ Extremely fast  
 ⚠️ Not quantum-safe  
 
