@@ -1,13 +1,10 @@
 # ePassport Issuance PQC Benchmark
-
 A lightweight, reproducible benchmark that simulates the **cryptographic workload of a simplified ePassport issuance flow**, comparing a classical baseline with selected **post-quantum cryptography (PQC)** signature schemes.
 
 ## Why this exists
-
 This project was built to explore performance trade-offs in an issuance-like workflow and provide a repeatable way to compare cryptographic costs across different approaches.
 
 ## What it does
-
 The benchmark simulates representative cryptographic steps of an ePassport issuance flow, including:
 
 - Input loading (MRZ, portrait, fingerprints, signature)
@@ -20,7 +17,6 @@ The benchmark simulates representative cryptographic steps of an ePassport issua
 - Optional simplified PACE
 
 ## What it does **not** do
-
 This is **not** a full ePassport implementation.
 
 - No real EF.COM / EF.SOD generation
@@ -37,7 +33,6 @@ The goal is to model **typical cryptographic workload**, not to reproduce the ex
 - **Fallback mode**: simulation if OQS is unavailable
 
 ## Important caveat
-
 This is **not a strict apples-to-apples benchmark**.
 
 The compared paths do not rely on identical implementation stacks. In practice, this means the results should be read as **prototype-level workload comparisons**, not as pure algorithm rankings.
@@ -49,7 +44,6 @@ In particular:
 - Different languages, bindings, native backends, optimization levels, and implementation maturity can materially influence timing.
 
 ## Supported suites
-
 Depending on the environment and OQS version, the benchmark targets:
 
 - **ML-DSA** (Dilithium family / standardized naming)
@@ -66,39 +60,31 @@ python passport_issuance_pqc_benchmark_en.py   --mrz-file mrz.txt   --portrait f
 ```
 
 ### PQC (ML-DSA / Dilithium-style suite)
-
 ```bash
 python passport_issuance_pqc_benchmark_en.py   --mrz-file mrz.txt   --portrait face.jpg   --finger1 f1.wsq   --finger2 f2.wsq   --signature sig.jpg   --suite pqc-dilithium   --runs 5   --out report_dilithium.json
 ```
 
 ### PQC (SLH-DSA / SPHINCS+-style suite)
-
 ```bash
 python passport_issuance_pqc_benchmark_en.py   --mrz-file mrz.txt   --portrait face.jpg   --finger1 f1.wsq   --finger2 f2.wsq   --signature sig.jpg   --suite pqc-sphincs   --runs 5   --out report_sphincs.json
 ```
 
 ## Output
-
 The script produces JSON output with:
-
 - Per-step timing
 - Total timing
 - Aggregate statistics across runs
 - Basic environment metadata
 
-
 ## Example results
-
-Below is a simplified comparison based on sample benchmark runs (All results were generated on a standard laptop (Intel x86_64 CPU) using default parameters).
+Below is a simplified comparison based on sample benchmark runs (All results were generated on a standard laptop Intel x86_64 CPU using default parameters).
 
 ### Classic (ECDSA-like baseline)
 - Sign (PA): ~0.00012 s  
 - Verify (PA): ~0.00008 s  
 - Total pipeline: ~0.0016 s
-
 ✅ Extremely fast  
 ⚠️ Not quantum-safe  
- 
 
 ### PQC ML-DSA-44 (Dilithium)
 - Sign (PA): ~0.00019 s  
@@ -118,7 +104,6 @@ Below is a simplified comparison based on sample benchmark runs (All results wer
 ❌ High computational cost (especially signing)  
 
 ### Quick comparison
-
 | Scheme      | Sign (PA) | Verify (PA) | Total time |
 |-------------|-----------|-------------|------------|
 | Classic     | 0.00012s  | 0.00008s    | 0.0016s    |
@@ -134,19 +119,14 @@ Below is a simplified comparison based on sample benchmark runs (All results wer
 > This is a **prototype-level workload benchmark**, not a strict apples-to-apples comparison.
 
 ## Example outputs
-
 See sample outputs:
-
 - sample_outputs/report_classic.json
 - sample_outputs/report_classic_ecdsa.json
 - sample_outputs/report_mldsa44.json
 - sample_outputs/report_slh_dsa.json
 
-
 ## Intended use
-
 This project is intended for:
-
 - research
 - experimentation
 - exploratory benchmarking
@@ -154,5 +134,4 @@ This project is intended for:
 It is **not** intended for production deployment or security-critical use.
 
 ## License
-
 MIT License
