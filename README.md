@@ -87,6 +87,52 @@ The script produces JSON output with:
 - Basic environment metadata
 
 
+## Example results
+
+Below is a simplified comparison based on sample benchmark runs.
+
+### Classic (ECDSA-like baseline)
+- Sign (PA): ~0.00012 s  
+- Verify (PA): ~0.00008 s  
+- Total pipeline: ~0.0016 s
+
+✅ Extremely fast  
+⚠️ Not quantum-safe  
+ 
+
+### PQC ML-DSA-44 (Dilithium)
+- Sign (PA): ~0.00019 s  
+- Verify (PA): ~0.00007 s  
+- Total pipeline: ~0.0038 s  
+
+✅ ~2–3× slower than classical  
+✅ Post-quantum secure  
+✅ Strong performance/security trade-off  
+
+### PQC SLH-DSA (SPHINCS+)
+- Sign (PA): ~0.019 s  
+- Verify (PA): ~0.0012 s  
+- Total pipeline: ~0.089 s  
+
+✅ Strong security assumptions  
+❌ High computational cost (especially signing)  
+
+### Quick comparison
+
+| Scheme      | Sign (PA) | Verify (PA) | Total time |
+|-------------|-----------|-------------|------------|
+| Classic     | 0.00012s  | 0.00008s    | 0.0016s    |
+| ML-DSA-44   | 0.00019s  | 0.00007s    | 0.0038s    |
+| SLH-DSA     | 0.019s    | 0.0012s     | 0.089s     |
+
+### Takeaway
+- **Classic** → fastest, but not future-proof  
+- **ML-DSA (Dilithium)** → best practical trade-off ✅  
+- **SLH-DSA (SPHINCS+)** → strongest assumptions, highest cost ❗  
+
+> ⚠️ Note: results depend heavily on hardware, libraries, and environment.  
+> This is a **prototype-level workload benchmark**, not a strict apples-to-apples comparison.
+
 ## Example outputs
 
 See sample outputs:
