@@ -89,7 +89,7 @@ The script produces JSON output with:
 
 ## Example results
 
-Below is a simplified comparison based on sample benchmark runs.
+Below is a simplified comparison based on sample benchmark runs (All results were generated on a standard laptop (Intel x86_64 CPU) using default parameters).
 
 ### Classic (ECDSA-like baseline)
 - Sign (PA): ~0.00012 s  
