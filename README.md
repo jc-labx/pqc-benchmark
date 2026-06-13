@@ -86,6 +86,17 @@ The script produces JSON output with:
 - Aggregate statistics across runs
 - Basic environment metadata
 
+
+## Example outputs
+
+See sample outputs:
+
+- sample_outputs/report_classic.json
+- sample_outputs/report_classic_ecdsa.json
+- sample_outputs/report_mldsa44.json
+- sample_outputs/report_slh_dsa.json
+
+
 ## Intended use
 
 This project is intended for:
